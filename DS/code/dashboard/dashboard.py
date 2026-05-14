@@ -61,9 +61,34 @@ palette = {"Pass/Distinction": "#2ecc71", "Fail/Withdrawn": "#e74c3c"}
 # =============================================================
 # SIDEBAR MENU
 # =============================================================
-st.sidebar.title("🧭 Navigasi")
-menu_options = ["Stat Data Bersih", "Pertanyaan Bisnis", "Model MLM"]
-choice = st.sidebar.radio("Pilih Menu:", menu_options)
+st.markdown(
+    """
+    <style>
+    /* Target the sidebar container */
+    [data-testid="stSidebar"] {
+        background-color: #0F172A;
+    }
+    /* Optional: Style text to ensure visibility on dark background */
+    [data-testid="stSidebar"] .stMarkdown, 
+    [data-testid="stSidebar"] .stTitle,
+    [data-testid="stSidebar"] .stRadio {
+        color: #ffffff;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+with st.sidebar:
+    st.title("🧭 Navigasi")
+    # background_color method removed as it doesn't exist
+    
+    menu_options = ["Stat Data Bersih", "Pertanyaan Bisnis", "Model MLM"]
+    choice = st.radio("Pilih Menu:", menu_options)
+
+# Example usage to show the result
+if choice:
+    st.write(f"Anda memilih: **{choice}**")
 
 # =============================================================
 # HALAMAN: STAT DATA BERSIH (HOME)

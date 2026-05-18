@@ -25,14 +25,14 @@ def load_data():
     # Pastikan path ini sesuai dengan lokasi file Anda saat dijalankan
     # Contoh: '../data/processed/wrangled/df_master_weekly_clean.csv'
     try:
-        df_weekly = pd.read_csv('../../data/processed/wrangled/df_master_weekly_clean.csv')
+        df_weekly = pd.read_csv('/data/processed/wrangled/df_master_weekly_clean.csv')
         df_weekly = df_weekly[df_weekly["week"].isin([1, 2, 3, 4])].copy()
         df_weekly["risk_group"] = df_weekly["risk_label"].map({
             0: "Pass/Distinction",
             1: "Fail/Withdrawn"
         })
 
-        df_final = pd.read_csv("../../data/processed/df_final.csv")
+        df_final = pd.read_csv("/data/processed/df_final.csv")
         df_final["risk_group"] = df_final["risk_label"].map({
             0: "Pass/Distinction",
             1: "Fail/Withdrawn"

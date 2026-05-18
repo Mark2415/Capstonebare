@@ -23,7 +23,6 @@ st.set_page_config(
 @st.cache_data
 def load_data():
     # Pastikan path ini sesuai dengan lokasi file Anda saat dijalankan
-    # Contoh: '../data/processed/wrangled/df_master_weekly_clean.csv'
     try:
         df_weekly = pd.read_csv('data/processed/wrangled/df_master_weekly_clean.csv')
         df_weekly = df_weekly[df_weekly["week"].isin([1, 2, 3, 4])].copy()
